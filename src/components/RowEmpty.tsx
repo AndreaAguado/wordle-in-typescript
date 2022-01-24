@@ -6,7 +6,7 @@ const RowEmpty = () => {
        <div className={styles.row}>
            {Array.from(Array(5)).map((_,i)=>{
                return(
-                   <Box value="" status="empty"></Box>
+                   <Box key={i} value="" status="empty"></Box>
                ) 
            })}
        </div> 
