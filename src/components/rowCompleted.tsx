@@ -1,5 +1,6 @@
 import Box from "./Box";
 import { BoxStatus } from './types';
+import styles from '../styles/row.module.scss';
 
 interface rowCompletedProps {
     word: string;
@@ -21,7 +22,7 @@ const RowCompleted = ({word, solution} : rowCompletedProps) => {
       }
 
     return(
-        <div>
+        <div className={styles.row}>
             {
                 Array.from(Array(5)).map((_,i) => {
                     return(
