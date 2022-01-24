@@ -5,11 +5,17 @@ interface rowCompletedProps {
     solution: string;
 
 }
-const rowCompleted = ({word, solution} : rowCompletedProps) => {
+const RowCompleted = ({word, solution} : rowCompletedProps) => {
     return(
         <div>
-            
+            {
+                Array.from(Array(5)).map((_,i) => {
+                    return(
+                        <Box key={i} value="a" status="correct"></Box>
+                    )                    
+                })
+            }
         </div>
     )
 }
-export default rowCompleted;
+export default RowCompleted;

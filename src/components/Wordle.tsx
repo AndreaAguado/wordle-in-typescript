@@ -1,9 +1,9 @@
-import Box from "./Box";
+import RowCompleted from "./RowCompleted";
 
 const Wordle = () => {
     return(
         <div>
-            <Box value="a" status="present"/>
+            <RowCompleted word="sabio" solution="break"/>
         </div>
     )
 }
