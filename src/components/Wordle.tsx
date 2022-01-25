@@ -45,7 +45,7 @@ const Wordle = () => {
       ];
     
     useEffect(()=>{
-        setWordOfTheDay('break');
+        setWordOfTheDay('BREAK');
     },[]);
 
     const handleKeyDown = (event: KeyboardEvent) => {
@@ -92,6 +92,7 @@ const Wordle = () => {
             return;
         }
 
+        // new turn
         setCompletedWords([...completedWords, currentWord]);
         setTurn(turn + 1);
         setCurrentWord("");
@@ -103,12 +104,19 @@ const Wordle = () => {
 
     return(
         <div>
-            <RowCompleted word="sabio" solution={wordOfTheDay}/>
-            <RowCompleted word="sabio" solution={wordOfTheDay}/>
-            <RowCurrent word={currentWord}/>
-            <RowEmpty/>
-            <RowEmpty/>
-            <RowEmpty/>
+            {completedWords.map((word,i)=>(
+                    <RowCompleted word={word} solution={wordOfTheDay}/>
+            ))}
+
+            {
+            gameStatus === GameStatus.Won? null : ( <RowCurrent word ={currentWord} 
+            />
+            )}
+            {
+                Array.from(Array(6 - turn)).map((_,i)=>(
+                    <RowEmpty key={i}/>
+                ))
+            }
         </div>
     )
 }
