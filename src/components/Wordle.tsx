@@ -4,6 +4,7 @@ import RowEmpty from "./RowEmpty";
 import RowCurrent from './RowCurrent';
 import { GameStatus } from "./types";
 import useWindow from '../hooks/useWindow';
+import { getWordOfTheDay } from '../service/request';
 
 const Wordle = () => {
 
@@ -44,7 +45,7 @@ const Wordle = () => {
       ];
     
     useEffect(()=>{
-        setWordOfTheDay('BREAK');
+        setWordOfTheDay(getWordOfTheDay());
     },[]);
 
     const handleKeyDown = (event: KeyboardEvent) => {
@@ -107,7 +108,7 @@ const Wordle = () => {
     return(
         <div>
             {completedWords.map((word,i)=>(
-                    <RowCompleted word={word} solution={wordOfTheDay}/>
+                    <RowCompleted key={i} word={word} solution={wordOfTheDay}/>
             ))}
 
             {
