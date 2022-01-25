@@ -50,11 +50,14 @@ const Wordle = () => {
 
     const handleKeyDown = (event: KeyboardEvent) => {
         const letter = event.key.toUpperCase();
+        if(gameStatus !== GameStatus.Playing){
+            return;
+        }
         if(event.key === "Backspace" && currentWord.length > 0){
             onDelete();
             return;
         }
-        if(event.key === "Enter" && currentWord.length === 5){
+        if(event.key === "Enter" && currentWord.length === 5 && turn <= 6){
             onEnter();
             return;
         }
@@ -109,9 +112,7 @@ const Wordle = () => {
             ))}
 
             {
-            gameStatus === GameStatus.Won? null : ( <RowCurrent word ={currentWord} 
-            />
-            )}
+            gameStatus === GameStatus.Playing? ( <RowCurrent word ={currentWord} />) :  null }
             {
                 Array.from(Array(6 - turn)).map((_,i)=>(
                     <RowEmpty key={i}/>
