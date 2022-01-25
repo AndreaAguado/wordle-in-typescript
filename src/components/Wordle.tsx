@@ -5,6 +5,7 @@ import RowCurrent from './RowCurrent';
 import { GameStatus } from "./types";
 import useWindow from '../hooks/useWindow';
 import { getWordOfTheDay, isValidWord } from '../service/request';
+import styles from '../styles/wordle.module.scss';
 
 const Wordle = () => {
 
@@ -112,7 +113,7 @@ const Wordle = () => {
     useWindow("keydown", handleKeyDown);
 
     return(
-        <div>
+        <div className={styles.mainContainer}>
             {completedWords.map((word,i)=>(
                     <RowCompleted key={i} word={word} solution={wordOfTheDay}/>
             ))}
