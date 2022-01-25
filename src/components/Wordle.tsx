@@ -51,6 +51,7 @@ const Wordle = () => {
     const handleKeyDown = (event: KeyboardEvent) => {
         const letter = event.key.toUpperCase();
         if(event.key === "Backspace" && currentWord.length > 0){
+            onDelete();
             return;
         }
         if(event.key === "Enter"){
@@ -69,6 +70,11 @@ const Wordle = () => {
         const newWord = currentWord + letter;
         setCurrentWord(newWord);
 
+    }
+
+    const onDelete = () => {
+        const newWord = currentWord.slice(0,-1);
+        setCurrentWord(newWord);
     }
 
     useWindow("keydown", handleKeyDown);
