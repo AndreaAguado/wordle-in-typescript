@@ -10,7 +10,6 @@ const Wordle = () => {
     const [wordOfTheDay, setWordOfTheDay] = useState<string>("");
     const [turn, setTurn] = useState<number>(1);
     const [currentWord, setCurrentWord] = useState<string>("");
-    const [completedWord, setCompletedWord] = useState<string>("");
     const [completedWords, setCompletedWords] = useState<string[]>([]);
     const [gameStatus, setGameStatus] = useState<GameStatus>(GameStatus.Playing);
 
