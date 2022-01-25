@@ -4,7 +4,7 @@ import RowEmpty from "./RowEmpty";
 import RowCurrent from './RowCurrent';
 import { GameStatus } from "./types";
 import useWindow from '../hooks/useWindow';
-import { getWordOfTheDay } from '../service/request';
+import { getWordOfTheDay, isValidWord } from '../service/request';
 
 const Wordle = () => {
 
@@ -92,6 +92,12 @@ const Wordle = () => {
             // user loses
             setCompletedWords([...completedWords, currentWord]);
             setGameStatus(GameStatus.Lost);
+            return;
+        }
+
+        // validate word
+        if(currentWord.length === 5 && !isValidWord(currentWord)){
+            alert('Word not in list');
             return;
         }
 
