@@ -54,7 +54,8 @@ const Wordle = () => {
             onDelete();
             return;
         }
-        if(event.key === "Enter"){
+        if(event.key === "Enter" && currentWord.length === 5){
+            onEnter();
             return;
         }
         if(currentWord.length >= 5) {
@@ -75,6 +76,27 @@ const Wordle = () => {
     const onDelete = () => {
         const newWord = currentWord.slice(0,-1);
         setCurrentWord(newWord);
+    }
+
+    const onEnter = () => {
+        if(currentWord === wordOfTheDay){
+            // user wins
+            setCompletedWords([...completedWords, currentWord]);
+            setGameStatus(GameStatus.Won)
+            return;
+        }
+        if(turn === 6){
+            // user loses
+            setCompletedWords([...completedWords, currentWord]);
+            setGameStatus(GameStatus.Lost);
+            return;
+        }
+
+        setCompletedWords([...completedWords, currentWord]);
+        setTurn(turn + 1);
+        setCurrentWord("");
+        
+
     }
 
     useWindow("keydown", handleKeyDown);
