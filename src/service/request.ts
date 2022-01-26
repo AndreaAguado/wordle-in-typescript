@@ -12,7 +12,7 @@ export const getWordOfTheDay = () => {
 
 export const isValidWord = (word: string) => {
     const words = getWords();
-    return words.includes(word.toUpperCase());
+    return words.includes(word.toLocaleLowerCase());
 }
 
 const getDayOfTheYear = () => {
