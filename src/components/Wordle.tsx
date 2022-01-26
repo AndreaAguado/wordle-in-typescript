@@ -51,23 +51,27 @@ const Wordle = () => {
     },[]);
 
     const handleKeyDown = (event: KeyboardEvent) => {
-        const letter = event.key.toUpperCase();
+        const key = event.key.toUpperCase();
+        onKeyPressed(key);
+    }
+
+    const onKeyPressed = (key: string) => {
         if(gameStatus !== GameStatus.Playing){
             return;
         }
-        if(event.key === "Backspace" && currentWord.length > 0){
+        if(key === "BACKSPACE" && currentWord.length > 0){
             onDelete();
             return;
         }
-        if(event.key === "Enter" && currentWord.length === 5 && turn <= 6){
+        if(key === "ENTER" && currentWord.length === 5 && turn <= 6){
             onEnter();
             return;
         }
         if(currentWord.length >= 5) {
             return;
         }
-        if(keys.includes(letter)){
-            onInput(letter);
+        if(keys.includes(key)){
+            onInput(key);
             return;
         }
     }
@@ -128,7 +132,7 @@ const Wordle = () => {
                     ))
                 }
             </div>
-            <Keyboard keys={keys} onInput={onInput} onEnter={onEnter} onDelete={onDelete}/>
+            <Keyboard keys={keys} onKeyPressed={onKeyPressed}/>
         </>
     )
 }

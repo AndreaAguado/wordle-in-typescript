@@ -1,20 +1,17 @@
 import style from '../styles/keyboard.module.scss';
 interface KeyboardProps {
     keys: string[];
-    onInput: (letter: string) => void;
-    onEnter: () => void;
-    onDelete: () => void;
-
+    onKeyPressed: (key: string) => void;
 }
-const Keyboard = ({keys, onInput, onEnter, onDelete }: KeyboardProps ) => {
+const Keyboard = ({keys, onKeyPressed}: KeyboardProps ) => {
     const handleInput = (e : any) => {
-        onInput(e.target.textContent);
+        onKeyPressed(e.target.textContent);
     }
     const handleEnter = () => {
-        onEnter();
+        onKeyPressed('ENTER');
     }
     const handleDelete = () => {
-        onDelete();
+        onKeyPressed('BACKSPACE');
     }
     return(
         <div className={style.keyboardContainer}>
