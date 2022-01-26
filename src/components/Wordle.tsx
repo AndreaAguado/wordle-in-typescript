@@ -6,6 +6,7 @@ import { GameStatus } from "./types";
 import useWindow from '../hooks/useWindow';
 import { getWordOfTheDay, isValidWord } from '../service/request';
 import styles from '../styles/wordle.module.scss';
+import Keyboard from "./Keyboard";
 
 const Wordle = () => {
 
@@ -113,19 +114,22 @@ const Wordle = () => {
     useWindow("keydown", handleKeyDown);
 
     return(
-        <div className={styles.mainContainer}>
-            {completedWords.map((word,i)=>(
-                    <RowCompleted key={i} word={word} solution={wordOfTheDay}/>
-            ))}
+        <>       
+            <div className={styles.mainContainer}>
+                {completedWords.map((word,i)=>(
+                        <RowCompleted key={i} word={word} solution={wordOfTheDay}/>
+                ))}
 
-            {
-            gameStatus === GameStatus.Playing? ( <RowCurrent word ={currentWord} />) :  null }
-            {
-                Array.from(Array(6 - turn)).map((_,i)=>(
-                    <RowEmpty key={i}/>
-                ))
-            }
-        </div>
+                {
+                gameStatus === GameStatus.Playing? ( <RowCurrent word ={currentWord} />) :  null }
+                {
+                    Array.from(Array(6 - turn)).map((_,i)=>(
+                        <RowEmpty key={i}/>
+                    ))
+                }
+            </div>
+            <Keyboard keys={keys} onInput={onInput} onEnter={onEnter} onDelete={onDelete}/>
+        </>
     )
 }
 export default Wordle;
