@@ -1,3 +1,4 @@
+// import callToApi from "./callToApi";
 import { WORDS } from "./words";
 
 const getWords = () => {
@@ -10,9 +11,21 @@ export const getWordOfTheDay = () => {
     return wordOfTheDay.toUpperCase();
 }
 
-export const isValidWord = (word: string) => {
-    const words = getWords();
-    return words.includes(word.toLocaleLowerCase());
+export const isValidWord = async (word: string) => {
+    // const words = getWords();
+    // const aux = callToApi.callToApi(word);
+    // console.log(aux);    
+    // return words.includes(word.toLocaleLowerCase());
+   try {
+       const URL = `https://api.dictionaryapi.dev/api/v2/entries/en/${word}`;
+       const response = await fetch(URL);
+       const json = await response.json();
+       if (response.status !== 200) throw new Error("Request Failed");
+       return json.length;
+    }
+    catch (e){
+        return false;
+    }
 }
 
 const getDayOfTheYear = () => {

@@ -88,7 +88,7 @@ const Wordle = () => {
         setCurrentWord(newWord);
     }
 
-    const onEnter = () => {
+    const onEnter = async () => {
         if(currentWord === wordOfTheDay){
             // user wins
             setCompletedWords([...completedWords, currentWord]);
@@ -103,7 +103,8 @@ const Wordle = () => {
         }
 
         // validate word
-        if(currentWord.length === 5 && !isValidWord(currentWord)){
+        const validWord =  await isValidWord(currentWord)
+        if(currentWord.length === 5 && !validWord){
             alert('Word not in list');
             return;
         }
