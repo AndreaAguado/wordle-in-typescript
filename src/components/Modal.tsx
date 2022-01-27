@@ -36,6 +36,7 @@ const Modal = ({type, completedWords,solution}:ModalProps) => {
         <div className={styles.modalViewContainer}>
             <div className={styles.modalContainer}>
                 <h2>{type === 'won' ? 'Congrats, you won! 🥳' : 'You lost 🥺'}</h2>
+                <p className={styles.solution}>{type === 'won' ? null : `The solution was: ${solution}`}</p>
                 <div className={styles.puzzle}>
                     {completedWords.map((word,i)=>(
                         <Square key={i} word={word} solution={solution}/>
