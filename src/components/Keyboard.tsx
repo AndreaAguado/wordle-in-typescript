@@ -15,33 +15,39 @@ const Keyboard = ({keys, onKeyPressed}: KeyboardProps ) => {
     }
     return(
         <div className={style.keyboardContainer}>
-            {
-                Array.from(Array(10)).map((_,i)=>(
-                    <button key={i} className={style.key} onClick={handleInput}>
-                        {keys[i]}
-                    </button>
-                ))
-            }
-            {
-                Array.from(Array(10)).map((_,i)=>(
-                    <button key={i + 10} className={style.key} onClick={handleInput}>
-                         {keys[i + 10]}
-                    </button>
-                ))
-            }
-            <button className={style.enterKey} onClick={handleEnter}>
-                ENTER
-            </button>
-            {
-                Array.from(Array(7)).map((_,i)=>(
-                    <button key={i + 20} className={style.key} onClick={handleInput}>
-                         {keys[i + 20]}
-                    </button>
-                ))
-            }
-            <button className={style.deleteKey} onClick={handleDelete}>
-                DELETE
-            </button>
+            <div className={style.row}>
+                {
+                    Array.from(Array(10)).map((_,i)=>(
+                        <button key={i} className={style.key} onClick={handleInput}>
+                            {keys[i]}
+                        </button>
+                    ))
+                }
+            </div>
+            <div className={style.row}>
+                {
+                    Array.from(Array(10)).map((_,i)=>(
+                        <button key={i + 10} className={style.key} onClick={handleInput}>
+                             {keys[i + 10]}
+                        </button>
+                    ))
+                }
+            </div>
+            <div className={style.row}>
+                <button className={style.enterKey} onClick={handleEnter}>
+                    ENTER
+                </button>
+                {
+                    Array.from(Array(7)).map((_,i)=>(
+                        <button key={i + 20} className={style.key} onClick={handleInput}>
+                             {keys[i + 20]}
+                        </button>
+                    ))
+                }
+                <button className={style.deleteKey} onClick={handleDelete}>
+                    DELETE
+                </button>
+            </div>
         </div>
     )
 }
