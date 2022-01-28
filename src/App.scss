@@ -5,18 +5,27 @@ body {
 
 .header {
   color: white;
-  height: 10vh;
+  height: fit-content;
   display: flex;
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  background-color: red;
+  padding: 10px;
+  border-bottom: solid 1px #555;
+  width: 60%;
+  margin: 5px auto 0px;
+  &_title {
+    margin: unset;
+  }
 }
 .main {
-  background-color: yellow;
   height: 80vh;
+  padding: 10px 5px;
 }
 .footer {
-  height: 10vh;
+  height: fit-content;
   background-color: cyan;
+  position: absolute;
+  width: 100%;
+  bottom: 0px;
 }

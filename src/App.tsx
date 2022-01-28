@@ -5,7 +5,7 @@ function App() {
   return (
     <div className="body">  
       <header className="header">
-        <h1>Wordle</h1>
+        <h1 className="header_title">Wordle</h1>
       </header>
       <main className="main">
         <Wordle/>
