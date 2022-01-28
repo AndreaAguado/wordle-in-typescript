@@ -10,10 +10,10 @@ body {
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  padding: 10px;
+  padding-top: 6px;
   border-bottom: solid 1px #555;
   width: 60%;
-  margin: 5px auto 0px;
+  margin: auto;
   &_title {
     margin: unset;
   }
