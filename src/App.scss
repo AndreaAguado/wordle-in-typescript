@@ -24,8 +24,34 @@ body {
 }
 .footer {
   height: fit-content;
-  background-color: cyan;
-  position: absolute;
-  width: 100%;
+  position: fixed;
+  width: fit-content;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+  padding: 10px;
+  color: white;
+  right: 0px;
   bottom: 0px;
+  &_links_list {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    padding-inline-start: unset;
+    list-style: none;
+    margin: 0px;
+  }
+  &_link {
+    margin: 0 10px;
+    color: white;
+    &:hover {
+      color: green;
+    }
+  }
+  &_small {
+    font-family: monospace;
+    font-size: 1rem;
+  }
 }

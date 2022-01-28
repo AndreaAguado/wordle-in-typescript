@@ -1,5 +1,6 @@
-import Wordle from "./components/Wordle";
 import './App.scss';
+import Wordle from "./components/Wordle";
+import Footer from "./components/Footer";
 
 function App() {
   return (
@@ -10,9 +11,8 @@ function App() {
       <main className="main">
         <Wordle/>
       </main>
-      <footer className="footer"></footer>
+      <Footer/>
     </div>
-
   );
 }
 
