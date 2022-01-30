@@ -23,6 +23,9 @@ body {
   padding: 10px 5px;
   width: 100%;
   touch-action: manipulation;
+  @media all and (max-width: 768px) {
+    width: unset;
+  }
   @media all and (max-width: 1200px) {
     height: fit-content;
   }
