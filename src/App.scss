@@ -21,6 +21,9 @@ body {
 .main {
   height: 80vh;
   padding: 10px 5px;
+  @media all and (max-width: 500px) {
+    height: fit-content;
+  }
 }
 .footer {
   height: fit-content;
@@ -34,6 +37,10 @@ body {
   color: white;
   right: 0px;
   bottom: 0px;
+  @media all and (max-width: 500px) {
+    width: 100%;
+    position: relative;
+  }
   &_links_list {
     display: flex;
     flex-direction: row;
