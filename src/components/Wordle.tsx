@@ -2,12 +2,17 @@ import { useEffect, useState } from "react";
 import RowCompleted from "./RowCompleted";
 import RowEmpty from "./RowEmpty";
 import RowCurrent from './RowCurrent';
-import { GameStatus } from "./types";
+import { GameStatus, KeyStatus} from "./types";
 import useWindow from '../hooks/useWindow';
 import { getWordOfTheDay, isValidWord } from '../service/request';
 import styles from '../styles/wordle.module.scss';
 import Keyboard from "./Keyboard";
 import Modal from "./Modal";
+
+export interface KeyboardKey {
+    letterValue: string,
+    letterStatus: KeyStatus
+}
 
 const Wordle = () => {
 
@@ -46,10 +51,48 @@ const Wordle = () => {
         "N",
         "M",
       ];
+
+      const [keysStates, setKeysStates] = useState<KeyboardKey[]> ([
+        {letterValue: "Q", letterStatus: "unknown"},
+        {letterValue: "W", letterStatus: "unknown"},
+        {letterValue: "E", letterStatus: "unknown"},
+        {letterValue: "R", letterStatus: "unknown"},
+        {letterValue: "T", letterStatus: "unknown"},
+        {letterValue: "Y", letterStatus: "unknown"},
+        {letterValue: "U", letterStatus: "unknown"},
+        {letterValue: "I", letterStatus: "unknown"},
+        {letterValue: "O", letterStatus: "unknown"},
+        {letterValue: "P", letterStatus: "unknown"},
+        {letterValue: "A", letterStatus: "unknown"},
+        {letterValue: "S", letterStatus: "unknown"},
+        {letterValue: "D", letterStatus: "unknown"},
+        {letterValue: "F", letterStatus: "unknown"},
+        {letterValue: "G", letterStatus: "unknown"},
+        {letterValue: "H", letterStatus: "unknown"},
+        {letterValue: "J", letterStatus: "unknown"},
+        {letterValue: "K", letterStatus: "unknown"},
+        {letterValue: "L", letterStatus: "unknown"},
+        {letterValue: "Ñ", letterStatus: "unknown"},
+        {letterValue: "Z", letterStatus: "unknown"},
+        {letterValue: "X", letterStatus: "unknown"},
+        {letterValue: "C", letterStatus: "unknown"},
+        {letterValue: "V", letterStatus: "unknown"},
+        {letterValue: "B", letterStatus: "unknown"},
+        {letterValue: "N", letterStatus: "unknown"},
+        {letterValue: "M", letterStatus: "unknown"},
+      ]);
     
     useEffect(()=>{
         setWordOfTheDay(getWordOfTheDay());
     },[]);
+
+    useEffect(()=> { 
+        if(completedWords.length > 0){
+            console.log(completedWords.length);            
+            colorVirtualKeys(completedWords[completedWords.length - 1]);
+        }
+
+    }, [completedWords]);
 
     const handleKeyDown = (event: KeyboardEvent) => {
         const key = event.key.toUpperCase();
@@ -117,6 +160,40 @@ const Wordle = () => {
 
     }
 
+
+    function colorVirtualKeys(word: string) : void {  
+        word.split('').map((letter, i) =>
+        (
+            checkLetter(letter, i)
+        )
+        );    
+    }
+
+
+    function checkLetter(letter: string, pos: number): void {
+        if (wordOfTheDay.includes(letter)) {
+          if (wordOfTheDay[pos] === letter) {
+              findLetterOfKeyboard(letter, "correct");
+            // return "correct";
+          } else {
+            findLetterOfKeyboard(letter, "present");
+            // return "present";
+          }
+        } else {
+            findLetterOfKeyboard(letter, "absent");
+        //   return "absent";
+        }
+    }
+
+    function findLetterOfKeyboard(letter : string, status: KeyStatus) {
+        let index = keysStates.findIndex(key => {return key.letterValue === letter})
+        const aux = keysStates;
+        aux[index].letterStatus = status;
+        setKeysStates(aux);
+    }
+
+
+
     useWindow("keydown", handleKeyDown);
 
     return(
@@ -141,7 +218,7 @@ const Wordle = () => {
                     ))
                 }
             </div>
-            <Keyboard keys={keys} onKeyPressed={onKeyPressed}/>
+            <Keyboard keys={keys} onKeyPressed={onKeyPressed} keysStates={keysStates} />
         </>
     )
 }

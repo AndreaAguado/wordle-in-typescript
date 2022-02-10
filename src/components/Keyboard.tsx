@@ -1,24 +1,48 @@
 import style from '../styles/keyboard.module.scss';
-interface KeyboardProps {
-    keys: string[];
-    onKeyPressed: (key: string) => void;
+import { KeyStatus} from "./types";
+
+// import type KeyboardKey  from '../components/Wordle';
+
+// import classNames from 'classnames/bind';
+
+// const classes =  classNames.bind(style);
+
+interface KeyboardKey {
+    letterValue: string,
+    letterStatus: KeyStatus
 }
-const Keyboard = ({keys, onKeyPressed}: KeyboardProps ) => {
+
+interface KeyboardProps {
+    keys: string[],
+    onKeyPressed: (key: string) => void,
+    keysStates: KeyboardKey[]
+}
+
+const Keyboard = ({keys, onKeyPressed, keysStates}: KeyboardProps ) => {
+
     const handleInput = (e : any) => {
         onKeyPressed(e.target.textContent);
     }
     const handleEnter = () => {
-        onKeyPressed('ENTER');
+        onKeyPressed('ENTER');                    
     }
     const handleDelete = () => {
         onKeyPressed('BACKSPACE');
     }
+
+      
+    // const KeyStatus = classes({
+    //     absent: keysStates.letterStatus === "absent",
+    //     present: keysStates.letterStatus === "present",
+    //     correct: keysStates.letterStatus === "correct",
+    // })
+
     return(
         <div className={style.keyboardContainer}>
             <div className={style.row}>
                 {
                     Array.from(Array(10)).map((_,i)=>(
-                        <button key={i} className={style.key} onClick={handleInput}>
+                        <button key={i} className={keysStates[i].letterStatus === "correct" ? style.correct : keysStates[i].letterStatus === "present" ? style.present : keysStates[i].letterStatus === "absent" ? style.absent : style.unknown } onClick={handleInput}>
                             {keys[i]}
                         </button>
                     ))
@@ -27,7 +51,7 @@ const Keyboard = ({keys, onKeyPressed}: KeyboardProps ) => {
             <div className={style.row}>
                 {
                     Array.from(Array(10)).map((_,i)=>(
-                        <button key={i + 10} className={style.key} onClick={handleInput}>
+                        <button key={i + 10} className={keysStates[i + 10].letterStatus === "correct" ? style.correct : keysStates[i + 10].letterStatus === "present" ? style.present : keysStates[i + 10].letterStatus === "absent" ? style.absent : style.unknown} onClick={handleInput}>
                              {keys[i + 10]}
                         </button>
                     ))
@@ -39,7 +63,7 @@ const Keyboard = ({keys, onKeyPressed}: KeyboardProps ) => {
                 </button>
                 {
                     Array.from(Array(7)).map((_,i)=>(
-                        <button key={i + 20} className={style.key} onClick={handleInput}>
+                        <button key={i + 20} className={keysStates[i + 20].letterStatus === "correct" ? style.correct : keysStates[i + 20].letterStatus === "present" ? style.present : keysStates[i + 20].letterStatus === "absent" ? style.absent : style.unknown } onClick={handleInput}>
                              {keys[i + 20]}
                         </button>
                     ))

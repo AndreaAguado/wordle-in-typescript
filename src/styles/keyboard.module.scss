@@ -4,7 +4,6 @@
   border: none;
   border-radius: 3px;
   color: white;
-
   display: flex;
   align-items: center;
   justify-content: center;
@@ -24,7 +23,7 @@
     width: 100%;
   }
 }
-.key {
+@mixin key {
   @include keybase;
   width: 45px;
   height: 55px;
@@ -51,27 +50,35 @@
   @include keybase;
   width: 80px;
   height: 55px;
+  // background-color: #333;
 }
 
 .deleteKey {
   @include keybase;
   width: 80px;
   height: 55px;
+  // background-color: #333;
 }
 
+.unknown {
+  @include key;
+}
 .correct {
+  @include key;
   background-color: #4caf50;
   border: #4caf50 solid 2px;
   color: black;
 }
 
 .present {
+  @include key;
   background-color: #e5f321;
   border: #e5f321 solid 2px;
   color: black;
 }
 
 .absent {
+  @include key;
   background-color: #aaa;
   border: #aaa solid 2px;
   color: black;
