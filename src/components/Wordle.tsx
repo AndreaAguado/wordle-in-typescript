@@ -87,12 +87,17 @@ const Wordle = () => {
     },[]);
 
     useEffect(()=> { 
-        if(completedWords.length > 0){
-            console.log(completedWords.length);            
+        function colorVirtualKeys(word: string) : void {  
+            word.split('').map((letter, i) =>
+            (
+                checkLetter(letter, i)
+            )
+            );    
+        }
+        if(completedWords.length > 0){    
             colorVirtualKeys(completedWords[completedWords.length - 1]);
         }
-
-    }, [completedWords]);
+    });
 
     const handleKeyDown = (event: KeyboardEvent) => {
         const key = event.key.toUpperCase();
@@ -160,14 +165,13 @@ const Wordle = () => {
 
     }
 
-
-    function colorVirtualKeys(word: string) : void {  
-        word.split('').map((letter, i) =>
-        (
-            checkLetter(letter, i)
-        )
-        );    
-    }
+    // function colorVirtualKeys(word: string) : void {  
+    //     word.split('').map((letter, i) =>
+    //     (
+    //         checkLetter(letter, i)
+    //     )
+    //     );    
+    // }
 
 
     function checkLetter(letter: string, pos: number): void {
