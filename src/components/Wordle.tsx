@@ -165,15 +165,6 @@ const Wordle = () => {
 
     }
 
-    // function colorVirtualKeys(word: string) : void {  
-    //     word.split('').map((letter, i) =>
-    //     (
-    //         checkLetter(letter, i)
-    //     )
-    //     );    
-    // }
-
-
     function checkLetter(letter: string, pos: number): void {
         if (wordOfTheDay.includes(letter)) {
           if (wordOfTheDay[pos] === letter) {
