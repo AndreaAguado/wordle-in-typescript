@@ -1,8 +1,14 @@
 body {
-  background-color: black;
   font-family: Arial, Helvetica, sans-serif;
 }
-
+.light_mode {
+  background-color: white;
+  color: black;
+}
+.dark_mode {
+  background-color: black;
+  color: white;
+}
 .main {
   height: 80vh;
   padding: 10px 5px;

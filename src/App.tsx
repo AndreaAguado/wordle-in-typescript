@@ -1,16 +1,16 @@
-import './App.scss';
+import "./App.scss";
 import Wordle from "./components/Wordle";
 import Footer from "./components/Footer";
-import Header from './components/Header';
+import Header from "./components/Header";
 
 function App() {
   return (
-    <div className="body">  
-      <Header/>
+    <div>
+      <Header />
       <main className="main">
-        <Wordle/>
+        <Wordle />
       </main>
-      <Footer/>
+      <Footer />
     </div>
   );
 }

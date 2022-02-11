@@ -1,5 +1,4 @@
 .header {
-  color: white;
   height: fit-content;
   display: flex;
   flex-direction: row;
@@ -15,8 +14,15 @@
 }
 
 .options {
-  color: white;
   background-color: transparent;
   border: none;
   font-size: 1.1rem;
+}
+
+.dark_mode {
+  color: white;
+}
+
+.light_mode {
+  color: black;
 }

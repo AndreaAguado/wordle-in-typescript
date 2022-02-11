@@ -1,11 +1,32 @@
 import styles from "../styles/header.module.scss";
+import { useState } from "react";
 
 const Header = () => {
+  const [darkMode, setDarkMode] = useState(true);
+  const handleModeChange = () => {
+    if (darkMode) {
+      setDarkMode(false);
+      document.body.classList.add("light_mode");
+      document.body.classList.remove("dark_mode");
+    } else {
+      setDarkMode(true);
+      document.body.classList.add("dark_mode");
+      document.body.classList.remove("light_mode");
+    }
+  };
+
   return (
     <header className={styles.header}>
       <h1 className={styles.header_title}>Wordle</h1>
       <div>
-        <button className={styles.options}>
+        <button
+          onClick={handleModeChange}
+          className={
+            darkMode
+              ? `${styles.options} ${styles.dark_mode}`
+              : `${styles.options} ${styles.light_mode}`
+          }
+        >
           <i className="bi bi-gear-fill"></i>
         </button>
       </div>
