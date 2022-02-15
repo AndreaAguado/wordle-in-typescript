@@ -4,7 +4,7 @@ Th3 purpose of this project was to apply newly learned concepts of React with Ty
 
 This project started following [this tutorial](https://github.com/marcosrivasr/wordle-react "Link to repo") by Marcos Rivas.
 
-## Additions:
+## Original Additions:
 
 - Responsive Design.
 - Virtual Keyboard keys color change according to current word status (letter absent, present or correct).
