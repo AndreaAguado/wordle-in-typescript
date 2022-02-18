@@ -1,0 +1,29 @@
+.header {
+  height: fit-content;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding-top: 6px;
+  border-bottom: solid 1px #555;
+  width: 60%;
+  margin: auto;
+  &_title {
+    margin: unset;
+  }
+}
+
+.options {
+  background-color: transparent;
+  border: none;
+  font-size: 1.3rem;
+  cursor: pointer;
+}
+
+.dark_mode {
+  color: white;
+}
+
+.light_mode {
+  color: black;
+}
