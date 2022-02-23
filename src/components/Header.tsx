@@ -22,11 +22,7 @@ const Header = () => {
         <button
           onClick={handleModeChange}
           title={darkMode ? "Change to light mode" : "Change to dark mode"}
-          className={
-            darkMode
-              ? `${styles.options} ${styles.dark_mode}`
-              : `${styles.options} ${styles.light_mode}`
-          }
+          className={styles.options}
         >
           {/* <i className="bi bi-gear-fill"></i> */}
           {darkMode ? (
