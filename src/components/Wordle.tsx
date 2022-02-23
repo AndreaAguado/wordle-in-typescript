@@ -14,7 +14,12 @@ export interface KeyboardKey {
   letterStatus: KeyStatus;
 }
 
-const Wordle = () => {
+interface ModalProps {
+  hidden: boolean;
+  setHidden: React.Dispatch<React.SetStateAction<boolean>>;
+}
+
+const Wordle = ({ hidden, setHidden }: ModalProps) => {
   const [wordOfTheDay, setWordOfTheDay] = useState<string>("");
   const [turn, setTurn] = useState<number>(1);
   const [currentWord, setCurrentWord] = useState<string>("");
@@ -190,12 +195,16 @@ const Wordle = () => {
           type="won"
           completedWords={completedWords}
           solution={wordOfTheDay}
+          hidden={hidden}
+          setHidden={setHidden}
         />
       ) : gameStatus === GameStatus.Lost ? (
         <Modal
           type="lost"
           completedWords={completedWords}
           solution={wordOfTheDay}
+          hidden={hidden}
+          setHidden={setHidden}
         />
       ) : null}
       <div className={styles.mainContainer}>

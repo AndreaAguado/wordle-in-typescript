@@ -1,10 +1,11 @@
 import styles from "../styles/modal.module.scss";
-import { useState } from "react";
 
 interface ModalProps {
   type: "won" | "lost";
   completedWords: string[];
   solution: string;
+  hidden: boolean;
+  setHidden: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
 interface SquareProps {
@@ -12,11 +13,15 @@ interface SquareProps {
   solution: string;
 }
 
-const Modal = ({ type, completedWords, solution }: ModalProps) => {
-  const [modalHidden, setModalHidden] = useState<boolean>(false);
-
+const Modal = ({
+  type,
+  completedWords,
+  solution,
+  hidden,
+  setHidden,
+}: ModalProps) => {
   const handleClose = () => {
-    setModalHidden(true);
+    setHidden(true);
   };
 
   const Square = ({ word, solution }: SquareProps) => {
@@ -41,7 +46,7 @@ const Modal = ({ type, completedWords, solution }: ModalProps) => {
   };
   return (
     <>
-      {modalHidden ? null : (
+      {hidden ? null : (
         <div className={styles.modalViewContainer}>
           <div className={styles.modalContainer}>
             <div className={styles.button_container}>
