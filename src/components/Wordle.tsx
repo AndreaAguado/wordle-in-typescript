@@ -18,9 +18,16 @@ export interface KeyboardKey {
 interface ModalProps {
   hidden: boolean;
   setHidden: React.Dispatch<React.SetStateAction<boolean>>;
+  rulesHidden: boolean;
+  setRulesHidden: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
-const Wordle = ({ hidden, setHidden }: ModalProps) => {
+const Wordle = ({
+  hidden,
+  setHidden,
+  rulesHidden,
+  setRulesHidden,
+}: ModalProps) => {
   const [wordOfTheDay, setWordOfTheDay] = useState<string>("");
   const [turn, setTurn] = useState<number>(1);
   const [currentWord, setCurrentWord] = useState<string>("");
@@ -210,7 +217,9 @@ const Wordle = ({ hidden, setHidden }: ModalProps) => {
           gameStatus={gameStatus}
         />
       ) : null}
-      {gameStatus === GameStatus.Playing ? <Rules /> : null}
+      {gameStatus === GameStatus.Playing ? (
+        <Rules rulesHidden={rulesHidden} setRulesHidden={setRulesHidden} />
+      ) : null}
       <div className={styles.mainContainer}>
         {completedWords.map((word, i) => (
           <RowCompleted key={i} word={word} solution={wordOfTheDay} />

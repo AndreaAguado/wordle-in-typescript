@@ -16,7 +16,12 @@ function App() {
         setRulesHidden={setRulesHidden}
       />
       <main className="main">
-        <Wordle hidden={hidden} setHidden={setHidden} />
+        <Wordle
+          hidden={hidden}
+          setHidden={setHidden}
+          rulesHidden={rulesHidden}
+          setRulesHidden={setRulesHidden}
+        />
       </main>
       <Footer />
     </div>
