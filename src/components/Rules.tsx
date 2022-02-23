@@ -9,10 +9,16 @@ const Rules = ({ rulesHidden, setRulesHidden }: RulesProps) => {
     setRulesHidden(true);
   };
 
+  let lightMode = document.getElementsByClassName("light_mode");
+
   return (
     <>
       {rulesHidden ? null : (
-        <div className={styles.modal_container}>
+        <div
+          className={
+            lightMode.length > 0 ? styles.light_mode : styles.night_mode
+          }
+        >
           <section className={styles.section}>
             <header className={styles.title_container}>
               <h2 className={styles.title}>How to play</h2>

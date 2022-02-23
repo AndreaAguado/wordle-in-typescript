@@ -8,7 +8,7 @@ function App() {
   const [hidden, setHidden] = useState<boolean>(false);
   const [rulesHidden, setRulesHidden] = useState<boolean>(false);
   return (
-    <div>
+    <>
       <Header
         hidden={hidden}
         setHidden={setHidden}
@@ -24,7 +24,7 @@ function App() {
         />
       </main>
       <Footer />
-    </div>
+    </>
   );
 }
 
