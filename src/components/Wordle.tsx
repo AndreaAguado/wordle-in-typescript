@@ -8,6 +8,7 @@ import { getWordOfTheDay, isValidWord } from "../service/request";
 import styles from "../styles/wordle.module.scss";
 import Keyboard from "./Keyboard";
 import Modal from "./Modal";
+import Rules from "./Rules";
 
 export interface KeyboardKey {
   letterValue: string;
@@ -209,6 +210,7 @@ const Wordle = ({ hidden, setHidden }: ModalProps) => {
           gameStatus={gameStatus}
         />
       ) : null}
+      {gameStatus === GameStatus.Playing ? <Rules /> : null}
       <div className={styles.mainContainer}>
         {completedWords.map((word, i) => (
           <RowCompleted key={i} word={word} solution={wordOfTheDay} />
