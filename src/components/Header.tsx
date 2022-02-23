@@ -1,7 +1,12 @@
 import styles from "../styles/header.module.scss";
 import { useState } from "react";
 
-const Header = () => {
+interface HeaderProps {
+  hidden: boolean;
+  setHidden: React.Dispatch<React.SetStateAction<boolean>>;
+}
+
+const Header = ({ hidden, setHidden }: HeaderProps) => {
   const [darkMode, setDarkMode] = useState(true);
   const handleModeChange = () => {
     if (darkMode) {
@@ -15,11 +20,19 @@ const Header = () => {
     }
   };
 
+  const handleModal = () => {
+    if (hidden) {
+      setHidden(false);
+    } else {
+      setHidden(true);
+    }
+  };
+
   return (
     <header className={styles.header}>
       <h1 className={styles.header_title}>Wordle</h1>
       <div>
-        <button className={styles.options}>
+        <button onClick={handleModal} className={styles.options}>
           <i className="bi bi-bar-chart-line"></i>
         </button>
         <button
