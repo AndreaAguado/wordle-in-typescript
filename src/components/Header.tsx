@@ -4,9 +4,16 @@ import { useState } from "react";
 interface HeaderProps {
   hidden: boolean;
   setHidden: React.Dispatch<React.SetStateAction<boolean>>;
+  rulesHidden: boolean;
+  setRulesHidden: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
-const Header = ({ hidden, setHidden }: HeaderProps) => {
+const Header = ({
+  hidden,
+  setHidden,
+  rulesHidden,
+  setRulesHidden,
+}: HeaderProps) => {
   const [darkMode, setDarkMode] = useState(true);
   const handleModeChange = () => {
     if (darkMode) {
@@ -26,8 +33,17 @@ const Header = ({ hidden, setHidden }: HeaderProps) => {
     }
   };
 
+  const handleRulesModal = () => {
+    if (rulesHidden) {
+      setRulesHidden(false);
+    }
+  };
+
   return (
     <header className={styles.header}>
+      <button onClick={handleRulesModal} className={styles.rules_button}>
+        <i className="bi bi-patch-question"></i>
+      </button>
       <h1 className={styles.header_title}>Wordle</h1>
       <div>
         {hidden ? (

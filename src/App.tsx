@@ -6,9 +6,15 @@ import { useState } from "react";
 
 function App() {
   const [hidden, setHidden] = useState<boolean>(false);
+  const [rulesHidden, setRulesHidden] = useState<boolean>(false);
   return (
     <div>
-      <Header hidden={hidden} setHidden={setHidden} />
+      <Header
+        hidden={hidden}
+        setHidden={setHidden}
+        rulesHidden={rulesHidden}
+        setRulesHidden={setRulesHidden}
+      />
       <main className="main">
         <Wordle hidden={hidden} setHidden={setHidden} />
       </main>
