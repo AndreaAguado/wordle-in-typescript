@@ -61,6 +61,28 @@ const Rules = ({ rulesHidden, setRulesHidden }: RulesProps) => {
             </div>
             <p>The letter U is not in the word in any spot.</p>
             <p>A new WORDLE will be available each day!</p>
+            <small>
+              Recreation of the original{" "}
+              <a
+                className={styles.copy_link}
+                href="https://www.nytimes.com/games/wordle/index.html"
+                title="NY Times Wordle page"
+                target="_blank"
+                rel="noreferrer"
+              >
+                Wordle
+              </a>{" "}
+              game by{" "}
+              <a
+                className={styles.copy_link}
+                href="https://www.powerlanguage.co.uk/"
+                title="Josh Wardle page"
+                target="_blank"
+                rel="noreferrer"
+              >
+                Josh Wardle
+              </a>{" "}
+            </small>
           </section>
         </div>
       )}
