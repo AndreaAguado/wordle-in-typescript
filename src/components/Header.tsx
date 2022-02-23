@@ -19,6 +19,9 @@ const Header = () => {
     <header className={styles.header}>
       <h1 className={styles.header_title}>Wordle</h1>
       <div>
+        <button className={styles.options}>
+          <i className="bi bi-bar-chart-line"></i>
+        </button>
         <button
           onClick={handleModeChange}
           title={darkMode ? "Change to light mode" : "Change to dark mode"}
