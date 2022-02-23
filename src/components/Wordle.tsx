@@ -217,9 +217,7 @@ const Wordle = ({
           gameStatus={gameStatus}
         />
       ) : null}
-      {gameStatus === GameStatus.Playing ? (
-        <Rules rulesHidden={rulesHidden} setRulesHidden={setRulesHidden} />
-      ) : null}
+      <Rules rulesHidden={rulesHidden} setRulesHidden={setRulesHidden} />
       <div className={styles.mainContainer}>
         {completedWords.map((word, i) => (
           <RowCompleted key={i} word={word} solution={wordOfTheDay} />
