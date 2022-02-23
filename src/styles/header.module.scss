@@ -2,7 +2,7 @@
   height: fit-content;
   display: flex;
   flex-direction: row;
-  justify-content: center;
+  justify-content: space-around;
   align-items: center;
   padding-top: 6px;
   border-bottom: solid 1px #555;
@@ -13,17 +13,30 @@
   }
 }
 
-.options {
+@mixin button {
   background-color: transparent;
   border: none;
   font-size: 1.3rem;
+  color: inherit;
+}
+
+.mode_button {
+  @include button();
   cursor: pointer;
 }
 
-.dark_mode {
-  color: white;
+.modal_button {
+  @include button();
+  cursor: pointer;
 }
 
-.light_mode {
-  color: black;
+.disabled_button {
+  @include button();
+  color: #666666;
+  cursor: not-allowed;
+}
+
+.rules_button {
+  @include button();
+  cursor: pointer;
 }

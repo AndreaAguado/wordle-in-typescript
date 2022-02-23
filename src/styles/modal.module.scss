@@ -16,7 +16,7 @@
   padding: 10px;
   width: 500px;
   min-height: 300px;
-
+  color: black;
   h2 {
     text-align: center;
     font-size: 36px;
@@ -37,4 +37,18 @@
 .solution {
   text-align: center;
   font-weight: bold;
+}
+
+.close_button {
+  color: black;
+  font-size: 1rem;
+  cursor: pointer;
+  border: none;
+  line-height: 1rem;
+  padding: 1px 2px;
+}
+
+.button_container {
+  display: flex;
+  justify-content: flex-end;
 }
