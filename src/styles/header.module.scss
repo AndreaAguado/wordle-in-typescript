@@ -13,10 +13,25 @@
   }
 }
 
-.options {
+@mixin button {
   background-color: transparent;
   border: none;
   font-size: 1.3rem;
-  cursor: pointer;
   color: inherit;
+}
+
+.mode_button {
+  @include button();
+  cursor: pointer;
+}
+
+.modal_button {
+  @include button();
+  cursor: pointer;
+}
+
+.disabled_button {
+  @include button();
+  color: #666666;
+  cursor: not-allowed;
 }

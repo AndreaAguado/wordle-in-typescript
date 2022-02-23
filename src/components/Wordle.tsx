@@ -197,6 +197,7 @@ const Wordle = ({ hidden, setHidden }: ModalProps) => {
           solution={wordOfTheDay}
           hidden={hidden}
           setHidden={setHidden}
+          gameStatus={gameStatus}
         />
       ) : gameStatus === GameStatus.Lost ? (
         <Modal
@@ -205,6 +206,7 @@ const Wordle = ({ hidden, setHidden }: ModalProps) => {
           solution={wordOfTheDay}
           hidden={hidden}
           setHidden={setHidden}
+          gameStatus={gameStatus}
         />
       ) : null}
       <div className={styles.mainContainer}>

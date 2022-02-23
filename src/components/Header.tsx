@@ -23,8 +23,6 @@ const Header = ({ hidden, setHidden }: HeaderProps) => {
   const handleModal = () => {
     if (hidden) {
       setHidden(false);
-    } else {
-      setHidden(true);
     }
   };
 
@@ -32,13 +30,24 @@ const Header = ({ hidden, setHidden }: HeaderProps) => {
     <header className={styles.header}>
       <h1 className={styles.header_title}>Wordle</h1>
       <div>
-        <button onClick={handleModal} className={styles.options}>
-          <i className="bi bi-bar-chart-line"></i>
-        </button>
+        {hidden ? (
+          <button onClick={handleModal} className={styles.modal_button}>
+            <i className="bi bi-bar-chart-line"></i>
+          </button>
+        ) : (
+          <button
+            onClick={handleModal}
+            className={styles.disabled_button}
+            disabled
+          >
+            <i className="bi bi-bar-chart-line"></i>
+          </button>
+        )}
+
         <button
           onClick={handleModeChange}
           title={darkMode ? "Change to light mode" : "Change to dark mode"}
-          className={styles.options}
+          className={styles.mode_button}
         >
           {/* <i className="bi bi-gear-fill"></i> */}
           {darkMode ? (
