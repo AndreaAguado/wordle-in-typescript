@@ -4,7 +4,7 @@ const Footer = () => {
     <footer className="footer">
       <small className="footer_small">
         Made with{" "}
-        <span role="img" aria-label="emoji corazón" title="emoji corazón">
+        <span role="img" aria-label="heart emoji">
           &#10084;&#65039;
         </span>{" "}
         &copy; Andrea Aguado 2021
@@ -19,7 +19,7 @@ const Footer = () => {
               rel="noreferrer"
               title="twitter.com/andrea114am"
             >
-              <i className="bx bxl-twitter"></i>
+              <i className="bx bxl-twitter" aria-label="Twitter icon"></i>
             </a>
           </li>
           <li>
@@ -30,7 +30,7 @@ const Footer = () => {
               rel="noreferrer"
               title="linkedin.com/in/andrea-aguado-moleón/"
             >
-              <i className="bx bxl-linkedin"></i>
+              <i className="bx bxl-linkedin" aria-label="Linkedin icon"></i>
             </a>
           </li>
           <li>
@@ -41,7 +41,7 @@ const Footer = () => {
               rel="noreferrer"
               title="github.com/AndreaAguado"
             >
-              <i className="bx bxl-github"></i>
+              <i className="bx bxl-github" aria-label="github icon"></i>
             </a>
           </li>
         </ul>

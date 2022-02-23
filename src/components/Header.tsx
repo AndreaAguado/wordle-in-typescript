@@ -41,14 +41,22 @@ const Header = ({
 
   return (
     <header className={styles.header}>
-      <button onClick={handleRulesModal} className={styles.rules_button}>
-        <i className="bi bi-patch-question"></i>
+      <button
+        onClick={handleRulesModal}
+        className={styles.rules_button}
+        title="How to play?"
+      >
+        <i className="bi bi-patch-question" aria-label="question mark icon"></i>
       </button>
       <h1 className={styles.header_title}>Wordle</h1>
       <div>
         {hidden ? (
-          <button onClick={handleModal} className={styles.modal_button}>
-            <i className="bi bi-bar-chart-line"></i>
+          <button
+            onClick={handleModal}
+            className={styles.modal_button}
+            title="See results"
+          >
+            <i className="bi bi-bar-chart-line" aria-label="chart icon"></i>
           </button>
         ) : (
           <button
