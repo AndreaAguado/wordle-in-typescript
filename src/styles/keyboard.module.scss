@@ -1,5 +1,7 @@
+@import "./variables.scss";
+
 @mixin keybase {
-  background-color: #aaa;
+  background-color: $key_bg_color;
   cursor: pointer;
   border: none;
   border-radius: 3px;
@@ -64,18 +66,18 @@
 }
 .correct {
   @include key;
-  background-color: #4caf50;
-  border: #4caf50 solid 2px;
+  background-color: $correct;
+  border: $correct solid 2px;
 }
 
 .present {
   @include key;
-  background-color: #e5f321;
-  border: #e5f321 solid 2px;
+  background-color: $present;
+  border: $present solid 2px;
 }
 
 .absent {
   @include key;
-  background-color: #333;
-  border: #333 solid 2px;
+  background-color: $absent;
+  border: $absent solid 2px;
 }

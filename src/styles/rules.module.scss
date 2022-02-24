@@ -5,7 +5,7 @@
   font-weight: bold;
   width: 40px;
   height: 40px;
-  border: solid 2px #555;
+  border: solid 2px $box_border;
   color: white;
   display: flex;
   align-items: center;
@@ -14,20 +14,20 @@
 
 .correct {
   @include box;
-  background-color: #4caf50;
-  border: #4caf50 solid 2px;
+  background-color: $correct;
+  border: $correct solid 2px;
 }
 
 .present {
   @include box;
-  background-color: #e5f321;
-  border: #e5f321 solid 2px;
+  background-color: $present;
+  border: $present solid 2px;
 }
 
 .absent {
   @include box;
-  background-color: #333;
-  border: #333 solid 2px;
+  background-color: $absent;
+  border: $absent solid 2px;
 }
 
 .empty {
@@ -54,12 +54,12 @@
 
 .light_mode {
   @include modal_container();
-  background-color: white;
+  background-color: $light_bg_color;
 }
 
 .night_mode {
   @include modal_container();
-  background-color: black;
+  background-color: $dark_bg_color;
 }
 
 .section {

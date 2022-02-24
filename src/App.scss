@@ -1,13 +1,15 @@
+@import "./styles/variables.scss";
+
 body {
   font-family: Arial, Helvetica, sans-serif;
 }
 .light_mode {
-  background-color: white;
-  color: black;
+  background-color: $light_bg_color;
+  color: $dark_text_color;
 }
 .dark_mode {
-  background-color: black;
-  color: white;
+  background-color: $dark_bg_color;
+  color: $light_text_color;
 }
 .main {
   height: 80vh;
