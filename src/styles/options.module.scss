@@ -1,0 +1,43 @@
+@import "./variables.scss";
+
+@mixin modal_container {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  left: 0;
+  top: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.light_mode {
+  @include modal_container();
+  background-color: $light_bg_color;
+}
+
+.night_mode {
+  @include modal_container();
+  background-color: $dark_bg_color;
+}
+
+.section {
+  width: 40%;
+  height: 100%;
+  position: relative;
+  @media all and (max-width: 500px) {
+    width: 90%;
+  }
+}
+.close_button {
+  font-size: 1rem;
+  cursor: pointer;
+  border: none;
+  line-height: 1rem;
+  padding: 1px 2px;
+  position: absolute;
+  right: 0;
+  user-select: none;
+  background-color: transparent;
+  color: inherit;
+}

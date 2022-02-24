@@ -7,6 +7,8 @@ import { useState } from "react";
 function App() {
   const [hidden, setHidden] = useState<boolean>(false);
   const [rulesHidden, setRulesHidden] = useState<boolean>(false);
+  const [optionsHidden, setOptionsHidden] = useState<boolean>(true);
+  const [colorBlindMode, setColorBlindMode] = useState(false);
   return (
     <>
       <Header
@@ -14,6 +16,8 @@ function App() {
         setHidden={setHidden}
         rulesHidden={rulesHidden}
         setRulesHidden={setRulesHidden}
+        optionsHidden={optionsHidden}
+        setOptionsHidden={setOptionsHidden}
       />
       <main className="main">
         <Wordle
@@ -21,6 +25,10 @@ function App() {
           setHidden={setHidden}
           rulesHidden={rulesHidden}
           setRulesHidden={setRulesHidden}
+          optionsHidden={optionsHidden}
+          setOptionsHidden={setOptionsHidden}
+          colorBlindMode={colorBlindMode}
+          setColorBlindMode={setColorBlindMode}
         />
       </main>
       <Footer />

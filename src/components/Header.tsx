@@ -6,6 +6,8 @@ interface HeaderProps {
   setHidden: React.Dispatch<React.SetStateAction<boolean>>;
   rulesHidden: boolean;
   setRulesHidden: React.Dispatch<React.SetStateAction<boolean>>;
+  optionsHidden: boolean;
+  setOptionsHidden: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
 const Header = ({
@@ -13,9 +15,11 @@ const Header = ({
   setHidden,
   rulesHidden,
   setRulesHidden,
+  optionsHidden,
+  setOptionsHidden,
 }: HeaderProps) => {
   const [darkMode, setDarkMode] = useState(true);
-  const [colorBlindMode, setColorBlindMode] = useState(false);
+  // const [colorBlindMode, setColorBlindMode] = useState(false);
   const handleModeChange = () => {
     if (darkMode) {
       setDarkMode(false);
@@ -41,12 +45,15 @@ const Header = ({
   };
 
   const handleOptions = () => {
-    if (colorBlindMode) {
-      setColorBlindMode(false);
-      document.body.classList.remove("color_blind_mode");
-    } else {
-      setColorBlindMode(true);
-      document.body.classList.add("color_blind_mode");
+    // if (colorBlindMode) {
+    //   setColorBlindMode(false);
+    //   document.body.classList.remove("color_blind_mode");
+    // } else {
+    //   setColorBlindMode(true);
+    //   document.body.classList.add("color_blind_mode");
+    // }
+    if (optionsHidden) {
+      setOptionsHidden(false);
     }
   };
 

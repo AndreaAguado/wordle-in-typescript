@@ -9,6 +9,7 @@ import styles from "../styles/wordle.module.scss";
 import Keyboard from "./Keyboard";
 import Modal from "./Modal";
 import Rules from "./Rules";
+import Options from "./Options";
 
 export interface KeyboardKey {
   letterValue: string;
@@ -20,6 +21,10 @@ interface ModalProps {
   setHidden: React.Dispatch<React.SetStateAction<boolean>>;
   rulesHidden: boolean;
   setRulesHidden: React.Dispatch<React.SetStateAction<boolean>>;
+  optionsHidden: boolean;
+  setOptionsHidden: React.Dispatch<React.SetStateAction<boolean>>;
+  colorBlindMode: boolean;
+  setColorBlindMode: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
 const Wordle = ({
@@ -27,6 +32,10 @@ const Wordle = ({
   setHidden,
   rulesHidden,
   setRulesHidden,
+  optionsHidden,
+  setOptionsHidden,
+  colorBlindMode,
+  setColorBlindMode,
 }: ModalProps) => {
   const [wordOfTheDay, setWordOfTheDay] = useState<string>("");
   const [turn, setTurn] = useState<number>(1);
@@ -218,6 +227,15 @@ const Wordle = ({
         />
       ) : null}
       <Rules rulesHidden={rulesHidden} setRulesHidden={setRulesHidden} />
+      {optionsHidden ? null : (
+        <Options
+          optionsHidden={optionsHidden}
+          setOptionsHidden={setOptionsHidden}
+          colorBlindMode={colorBlindMode}
+          setColorBlindMode={setColorBlindMode}
+        />
+      )}
+
       <div className={styles.mainContainer}>
         {completedWords.map((word, i) => (
           <RowCompleted key={i} word={word} solution={wordOfTheDay} />
