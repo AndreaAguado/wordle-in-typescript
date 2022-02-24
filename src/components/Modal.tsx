@@ -27,13 +27,22 @@ const Modal = ({
   };
 
   const Square = ({ word, solution }: SquareProps) => {
+    let colorBlindMode = document.getElementsByClassName("color_blind_mode");
     const checkLetter = (letter: string, pos: number): string => {
       let emojiGrid = "";
       if (solution.includes(letter)) {
         if (solution[pos] === letter) {
-          emojiGrid += "🟩";
+          if (colorBlindMode.length > 0) {
+            emojiGrid += "🟧";
+          } else {
+            emojiGrid += "🟩";
+          }
         } else {
-          emojiGrid += "🟨";
+          if (colorBlindMode.length > 0) {
+            emojiGrid += "🟦";
+          } else {
+            emojiGrid += "🟨";
+          }
         }
       } else {
         emojiGrid += "⬛";
