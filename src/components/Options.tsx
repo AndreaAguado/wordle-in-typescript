@@ -1,13 +1,11 @@
 import styles from "../styles/options.module.scss";
 
 interface OptionProps {
-  optionsHidden: boolean;
   setOptionsHidden: React.Dispatch<React.SetStateAction<boolean>>;
   colorBlindMode: boolean;
   setColorBlindMode: React.Dispatch<React.SetStateAction<boolean>>;
 }
 const Options = ({
-  optionsHidden,
   setOptionsHidden,
   colorBlindMode,
   setColorBlindMode,

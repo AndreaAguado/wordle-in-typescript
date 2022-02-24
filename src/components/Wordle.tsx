@@ -229,7 +229,7 @@ const Wordle = ({
       <Rules rulesHidden={rulesHidden} setRulesHidden={setRulesHidden} />
       {optionsHidden ? null : (
         <Options
-          optionsHidden={optionsHidden}
+          // optionsHidden={optionsHidden}
           setOptionsHidden={setOptionsHidden}
           colorBlindMode={colorBlindMode}
           setColorBlindMode={setColorBlindMode}
