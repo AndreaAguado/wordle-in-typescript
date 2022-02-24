@@ -10,6 +10,7 @@ const Rules = ({ rulesHidden, setRulesHidden }: RulesProps) => {
   };
 
   let lightMode = document.getElementsByClassName("light_mode");
+  let colorBlindMode = document.getElementsByClassName("color_blind_mode");
 
   return (
     <>
@@ -37,7 +38,13 @@ const Rules = ({ rulesHidden, setRulesHidden }: RulesProps) => {
             </p>
             <h2>Examples</h2>
             <div className={styles.row}>
-              <span className={styles.correct}>w</span>
+              <span
+                className={
+                  colorBlindMode.length > 0 ? styles.correct_cb : styles.correct
+                }
+              >
+                w
+              </span>
               <span className={styles.empty}>e</span>
               <span className={styles.empty}>a</span>
               <span className={styles.empty}>r</span>
@@ -46,7 +53,13 @@ const Rules = ({ rulesHidden, setRulesHidden }: RulesProps) => {
             <p>The letter W is in the word and in the correct spot.</p>
             <div className={styles.row}>
               <span className={styles.empty}>p</span>
-              <span className={styles.present}>i</span>
+              <span
+                className={
+                  colorBlindMode.length > 0 ? styles.present_cb : styles.present
+                }
+              >
+                i
+              </span>
               <span className={styles.empty}>l</span>
               <span className={styles.empty}>l</span>
               <span className={styles.empty}>s</span>

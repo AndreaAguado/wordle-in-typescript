@@ -26,6 +26,18 @@
   color: white;
 }
 
+.correct_cb {
+  @include box;
+  background-color: $correct_cb;
+  border: $correct_cb solid 2px;
+}
+
+.present_cb {
+  @include box;
+  background-color: $present_cb;
+  border: $present_cb solid 2px;
+}
+
 .absent {
   @include box;
   background-color: $absent;

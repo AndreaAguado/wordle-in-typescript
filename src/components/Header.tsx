@@ -15,6 +15,7 @@ const Header = ({
   setRulesHidden,
 }: HeaderProps) => {
   const [darkMode, setDarkMode] = useState(true);
+  const [colorBlindMode, setColorBlindMode] = useState(false);
   const handleModeChange = () => {
     if (darkMode) {
       setDarkMode(false);
@@ -39,11 +40,21 @@ const Header = ({
     }
   };
 
+  const handleOptions = () => {
+    if (colorBlindMode) {
+      setColorBlindMode(false);
+      document.body.classList.remove("color_blind_mode");
+    } else {
+      setColorBlindMode(true);
+      document.body.classList.add("color_blind_mode");
+    }
+  };
+
   return (
     <header className={styles.header}>
       <button
         onClick={handleRulesModal}
-        className={styles.rules_button}
+        className={styles.button}
         title="How to play?"
       >
         <i className="bi bi-patch-question" aria-label="question mark icon"></i>
@@ -53,7 +64,7 @@ const Header = ({
         {hidden ? (
           <button
             onClick={handleModal}
-            className={styles.modal_button}
+            className={styles.button}
             title="See results"
           >
             <i className="bi bi-bar-chart-line" aria-label="chart icon"></i>
@@ -67,13 +78,15 @@ const Header = ({
             <i className="bi bi-bar-chart-line"></i>
           </button>
         )}
+        <button onClick={handleOptions} className={styles.button}>
+          <i className="bi bi-gear-fill"></i>
+        </button>
 
         <button
           onClick={handleModeChange}
           title={darkMode ? "Change to light mode" : "Change to dark mode"}
-          className={styles.mode_button}
+          className={styles.button}
         >
-          {/* <i className="bi bi-gear-fill"></i> */}
           {darkMode ? (
             <i aria-label="sun icon" className="bx bx-sun"></i>
           ) : (

@@ -76,6 +76,18 @@
   border: $present solid 2px;
 }
 
+.correct_cb {
+  @include key();
+  background-color: $correct_cb;
+  border: $correct_cb solid 2px;
+}
+
+.present_cb {
+  @include key();
+  background-color: $present_cb;
+  border: $present_cb solid 2px;
+}
+
 .absent {
   @include key;
   background-color: $absent;
