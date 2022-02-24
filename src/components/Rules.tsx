@@ -9,10 +9,17 @@ const Rules = ({ rulesHidden, setRulesHidden }: RulesProps) => {
     setRulesHidden(true);
   };
 
+  let lightMode = document.getElementsByClassName("light_mode");
+  let colorBlindMode = document.getElementsByClassName("color_blind_mode");
+
   return (
     <>
       {rulesHidden ? null : (
-        <div className={styles.modal_container}>
+        <div
+          className={
+            lightMode.length > 0 ? styles.light_mode : styles.night_mode
+          }
+        >
           <section className={styles.section}>
             <header className={styles.title_container}>
               <h2 className={styles.title}>How to play</h2>
@@ -31,7 +38,13 @@ const Rules = ({ rulesHidden, setRulesHidden }: RulesProps) => {
             </p>
             <h2>Examples</h2>
             <div className={styles.row}>
-              <span className={styles.correct}>w</span>
+              <span
+                className={
+                  colorBlindMode.length > 0 ? styles.correct_cb : styles.correct
+                }
+              >
+                w
+              </span>
               <span className={styles.empty}>e</span>
               <span className={styles.empty}>a</span>
               <span className={styles.empty}>r</span>
@@ -40,7 +53,13 @@ const Rules = ({ rulesHidden, setRulesHidden }: RulesProps) => {
             <p>The letter W is in the word and in the correct spot.</p>
             <div className={styles.row}>
               <span className={styles.empty}>p</span>
-              <span className={styles.present}>i</span>
+              <span
+                className={
+                  colorBlindMode.length > 0 ? styles.present_cb : styles.present
+                }
+              >
+                i
+              </span>
               <span className={styles.empty}>l</span>
               <span className={styles.empty}>l</span>
               <span className={styles.empty}>s</span>
@@ -55,6 +74,28 @@ const Rules = ({ rulesHidden, setRulesHidden }: RulesProps) => {
             </div>
             <p>The letter U is not in the word in any spot.</p>
             <p>A new WORDLE will be available each day!</p>
+            <small>
+              Recreation of the original{" "}
+              <a
+                className={styles.copy_link}
+                href="https://www.nytimes.com/games/wordle/index.html"
+                title="NY Times Wordle page"
+                target="_blank"
+                rel="noreferrer"
+              >
+                Wordle
+              </a>{" "}
+              game by{" "}
+              <a
+                className={styles.copy_link}
+                href="https://www.powerlanguage.co.uk/"
+                title="Josh Wardle page"
+                target="_blank"
+                rel="noreferrer"
+              >
+                Josh Wardle
+              </a>{" "}
+            </small>
           </section>
         </div>
       )}

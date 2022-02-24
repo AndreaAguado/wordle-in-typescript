@@ -1,58 +1,5 @@
 @import "./variables.scss";
 
-@mixin box {
-  font-size: 2em;
-  font-weight: bold;
-  width: 40px;
-  height: 40px;
-  border: solid 2px $box_border;
-  color: white;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.correct {
-  @include box;
-  background-color: $correct;
-  border: $correct solid 2px;
-}
-
-.present {
-  @include box;
-  background-color: $present;
-  border: $present solid 2px;
-}
-
-.correct_cb {
-  @include box;
-  background-color: $correct_cb;
-  border: $correct_cb solid 2px;
-}
-
-.present_cb {
-  @include box;
-  background-color: $present_cb;
-  border: $present_cb solid 2px;
-}
-
-.absent {
-  @include box;
-  background-color: $absent;
-  border: $absent solid 2px;
-}
-
-.empty {
-  @include box;
-}
-
-.row {
-  display: flex;
-  gap: $gap;
-  margin-bottom: $gap;
-  text-transform: uppercase;
-}
-
 @mixin modal_container {
   width: 100%;
   height: 100%;
@@ -76,6 +23,7 @@
 
 .section {
   width: 40%;
+  height: 90%;
   @media all and (max-width: 500px) {
     width: 90%;
   }
@@ -98,11 +46,35 @@
   justify-content: center;
   align-items: center;
   position: relative;
+  margin-bottom: 30px;
 }
 .title {
   text-transform: uppercase;
   margin: 0;
 }
-.copy_link {
+
+@mixin button {
+  background-color: transparent;
+  border: none;
+  font-size: 1.7rem;
   color: inherit;
+  height: fit-content;
+  line-height: 1.7rem;
+  padding: 4px 6px;
+}
+
+.button {
+  @include button();
+  cursor: pointer;
+}
+.setting_container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: solid 1px grey;
+  padding: 10px 0;
+}
+.setting_description {
+  display: flex;
+  flex-direction: column;
 }

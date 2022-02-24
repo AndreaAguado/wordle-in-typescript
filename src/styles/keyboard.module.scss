@@ -1,5 +1,7 @@
+@import "./variables.scss";
+
 @mixin keybase {
-  background-color: #aaa;
+  background-color: $key_bg_color;
   cursor: pointer;
   border: none;
   border-radius: 3px;
@@ -8,6 +10,20 @@
   align-items: center;
   justify-content: center;
   font-weight: bold;
+  font-size: inherit;
+}
+
+.originalFontSize {
+  font-size: small;
+}
+.XL_FontSize {
+  font-size: 1.2rem;
+  @media all and (min-width: 375px) {
+    font-size: 1.6rem;
+  }
+  @media all and (min-width: 750px) {
+    font-size: 2rem;
+  }
 }
 
 .keyboardContainer {
@@ -24,6 +40,7 @@
     width: 100%;
   }
 }
+
 @mixin key {
   @include keybase;
   width: 45px;
@@ -38,24 +55,18 @@
   justify-content: center;
   width: inherit;
   gap: inherit;
-}
-.emptyKey {
-  width: 25px;
-  height: 70px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  font-size: inherit;
 }
 
 .enterKey {
   @include keybase;
-  width: 80px;
+  width: fit-content;
   height: 55px;
 }
 
 .deleteKey {
   @include keybase;
-  width: 80px;
+  width: fit-content;
   height: 55px;
 }
 
@@ -64,18 +75,30 @@
 }
 .correct {
   @include key;
-  background-color: #4caf50;
-  border: #4caf50 solid 2px;
+  background-color: $correct;
+  border: $correct solid 2px;
 }
 
 .present {
   @include key;
-  background-color: #e5f321;
-  border: #e5f321 solid 2px;
+  background-color: $present;
+  border: $present solid 2px;
+}
+
+.correct_cb {
+  @include key();
+  background-color: $correct_cb;
+  border: $correct_cb solid 2px;
+}
+
+.present_cb {
+  @include key();
+  background-color: $present_cb;
+  border: $present_cb solid 2px;
 }
 
 .absent {
   @include key;
-  background-color: #333;
-  border: #333 solid 2px;
+  background-color: $absent;
+  border: $absent solid 2px;
 }

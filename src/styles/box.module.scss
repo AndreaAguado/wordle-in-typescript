@@ -5,7 +5,7 @@
   font-weight: bold;
   width: $size;
   height: $size;
-  border: solid 2px #555;
+  border: solid 2px $box_border;
   color: inherit;
   display: flex;
   align-items: center;
@@ -14,22 +14,34 @@
 
 .correct {
   @include box;
-  background-color: #4caf50;
-  border: #4caf50 solid 2px;
+  background-color: $correct;
+  border: $correct solid 2px;
   color: white;
 }
 
 .present {
   @include box;
-  background-color: #e5f321;
-  border: #e5f321 solid 2px;
+  background-color: $present;
+  border: $present solid 2px;
   color: white;
+}
+
+.correct_cb {
+  @include box;
+  background-color: $correct_cb;
+  border: $correct_cb solid 2px;
+}
+
+.present_cb {
+  @include box;
+  background-color: $present_cb;
+  border: $present_cb solid 2px;
 }
 
 .absent {
   @include box;
-  background-color: #333;
-  border: #333 solid 2px;
+  background-color: $absent;
+  border: $absent solid 2px;
   color: white;
 }
 

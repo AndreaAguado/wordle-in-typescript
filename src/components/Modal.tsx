@@ -27,23 +27,32 @@ const Modal = ({
   };
 
   const Square = ({ word, solution }: SquareProps) => {
+    let colorBlindMode = document.getElementsByClassName("color_blind_mode");
     const checkLetter = (letter: string, pos: number): string => {
+      let emojiGrid = "";
       if (solution.includes(letter)) {
         if (solution[pos] === letter) {
-          return "🟩";
+          if (colorBlindMode.length > 0) {
+            emojiGrid += "🟧";
+          } else {
+            emojiGrid += "🟩";
+          }
         } else {
-          return "🟨";
+          if (colorBlindMode.length > 0) {
+            emojiGrid += "🟦";
+          } else {
+            emojiGrid += "🟨";
+          }
         }
       } else {
-        return "⬛";
+        emojiGrid += "⬛";
       }
+      return emojiGrid;
     };
     return (
-      <div className={styles.puzzleWord}>
-        {word.split("").map((letter, i) => (
-          <div key={i}>{checkLetter(letter, i)}</div>
-        ))}
-      </div>
+      <p className={styles.puzzleWord}>
+        {word.split("").map((letter, i) => checkLetter(letter, i))}
+      </p>
     );
   };
   return (
@@ -66,11 +75,11 @@ const Modal = ({
                 <p className={styles.solution}>
                   {`The solution was: ${solution}`}
                 </p>
-                <div className={styles.puzzle}>
+                <p className={styles.puzzle}>
                   {completedWords.map((word, i) => (
                     <Square key={i} word={word} solution={solution} />
                   ))}
-                </div>
+                </p>
               </>
             )}
           </div>

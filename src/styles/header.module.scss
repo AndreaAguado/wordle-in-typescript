@@ -20,12 +20,7 @@
   color: inherit;
 }
 
-.mode_button {
-  @include button();
-  cursor: pointer;
-}
-
-.modal_button {
+.button {
   @include button();
   cursor: pointer;
 }
@@ -34,9 +29,4 @@
   @include button();
   color: #666666;
   cursor: not-allowed;
-}
-
-.rules_button {
-  @include button();
-  cursor: pointer;
 }
