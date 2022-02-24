@@ -10,6 +10,20 @@
   align-items: center;
   justify-content: center;
   font-weight: bold;
+  font-size: inherit;
+}
+
+.originalFontSize {
+  font-size: small;
+}
+.XL_FontSize {
+  font-size: 1.2rem;
+  @media all and (min-width: 375px) {
+    font-size: 1.6rem;
+  }
+  @media all and (min-width: 750px) {
+    font-size: 2rem;
+  }
 }
 
 .keyboardContainer {
@@ -26,6 +40,7 @@
     width: 100%;
   }
 }
+
 @mixin key {
   @include keybase;
   width: 45px;
@@ -40,24 +55,18 @@
   justify-content: center;
   width: inherit;
   gap: inherit;
-}
-.emptyKey {
-  width: 25px;
-  height: 70px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  font-size: inherit;
 }
 
 .enterKey {
   @include keybase;
-  width: 80px;
+  width: fit-content;
   height: 55px;
 }
 
 .deleteKey {
   @include keybase;
-  width: 80px;
+  width: fit-content;
   height: 55px;
 }
 

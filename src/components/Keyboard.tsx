@@ -35,9 +35,16 @@ const Keyboard = ({ keys, onKeyPressed, keysStates }: KeyboardProps) => {
   //     correct: keysStates.letterStatus === "correct",
   // })
   let colorBlindMode = document.getElementsByClassName("color_blind_mode");
+  let accessibilityMode = document.getElementsByClassName("accessibility_mode");
 
   return (
-    <div className={style.keyboardContainer}>
+    <div
+      className={
+        accessibilityMode.length > 0
+          ? `${style.keyboardContainer} ${style.XL_FontSize}`
+          : `${style.keyboardContainer} ${style.originalFontSize}`
+      }
+    >
       {colorBlindMode.length > 0 ? (
         <>
           <div className={style.row}>
@@ -166,7 +173,11 @@ const Keyboard = ({ keys, onKeyPressed, keysStates }: KeyboardProps) => {
               </button>
             ))}
             <button className={style.deleteKey} onClick={handleDelete}>
-              DELETE
+              {accessibilityMode.length > 0 ? (
+                <i className="bi bi-backspace"></i>
+              ) : (
+                "DELETE"
+              )}
             </button>
           </div>
         </>

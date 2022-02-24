@@ -25,6 +25,8 @@ interface ModalProps {
   setOptionsHidden: React.Dispatch<React.SetStateAction<boolean>>;
   colorBlindMode: boolean;
   setColorBlindMode: React.Dispatch<React.SetStateAction<boolean>>;
+  accessibilityMode: boolean;
+  setAccessibilityMode: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
 const Wordle = ({
@@ -36,6 +38,8 @@ const Wordle = ({
   setOptionsHidden,
   colorBlindMode,
   setColorBlindMode,
+  accessibilityMode,
+  setAccessibilityMode,
 }: ModalProps) => {
   const [wordOfTheDay, setWordOfTheDay] = useState<string>("");
   const [turn, setTurn] = useState<number>(1);
@@ -233,6 +237,8 @@ const Wordle = ({
           setOptionsHidden={setOptionsHidden}
           colorBlindMode={colorBlindMode}
           setColorBlindMode={setColorBlindMode}
+          accessibilityMode={accessibilityMode}
+          setAccessibilityMode={setAccessibilityMode}
         />
       )}
 

@@ -4,11 +4,15 @@ interface OptionProps {
   setOptionsHidden: React.Dispatch<React.SetStateAction<boolean>>;
   colorBlindMode: boolean;
   setColorBlindMode: React.Dispatch<React.SetStateAction<boolean>>;
+  accessibilityMode: boolean;
+  setAccessibilityMode: React.Dispatch<React.SetStateAction<boolean>>;
 }
 const Options = ({
   setOptionsHidden,
   colorBlindMode,
   setColorBlindMode,
+  accessibilityMode,
+  setAccessibilityMode,
 }: OptionProps) => {
   let lightMode = document.getElementsByClassName("light_mode");
 
@@ -19,6 +23,16 @@ const Options = ({
     } else {
       setColorBlindMode(true);
       document.body.classList.add("color_blind_mode");
+    }
+  };
+
+  const handleAccessibilityMode = () => {
+    if (accessibilityMode) {
+      setAccessibilityMode(false);
+      document.body.classList.remove("accessibility_mode");
+    } else {
+      setAccessibilityMode(true);
+      document.body.classList.add("accessibility_mode");
     }
   };
   const handleClose = () => {
@@ -48,6 +62,35 @@ const Options = ({
               <p>Activate Colorblind Mode</p>
               <button onClick={handleColorBlindMode} className={styles.button}>
                 <i className="bx bx-palette"></i>
+              </button>
+            </>
+          )}
+        </div>
+        <div className={styles.setting_container}>
+          {accessibilityMode ? (
+            <>
+              <span className={styles.setting_description}>
+                <p>Deactivate Accessibility Mode</p>
+                <small>Return keys font to original size</small>
+              </span>
+              <button
+                onClick={handleAccessibilityMode}
+                className={styles.button}
+              >
+                <i className="bx bx-font-size"></i>
+              </button>
+            </>
+          ) : (
+            <>
+              <span>
+                <p>Activate Accessibility Mode</p>
+                <small>Make keys font bigger</small>
+              </span>
+              <button
+                onClick={handleAccessibilityMode}
+                className={styles.button}
+              >
+                <i className="bx bx-font-size"></i>
               </button>
             </>
           )}
