@@ -107,7 +107,11 @@ const Keyboard = ({ keys, onKeyPressed, keysStates }: KeyboardProps) => {
               </button>
             ))}
             <button className={style.deleteKey} onClick={handleDelete}>
-              DELETE
+              {accessibilityMode.length > 0 ? (
+                <i className="bi bi-backspace"></i>
+              ) : (
+                "DELETE"
+              )}
             </button>
           </div>
         </>
