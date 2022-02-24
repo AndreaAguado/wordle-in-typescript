@@ -28,10 +28,12 @@
   width: 200px;
   margin: 0 auto 20px auto;
   font-size: 30px;
+  text-align: center;
+  white-space: pre;
 }
 
 .puzzleWord {
-  display: flex;
+  margin: 0;
 }
 
 .solution {
