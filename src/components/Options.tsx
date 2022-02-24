@@ -29,20 +29,27 @@ const Options = ({
       className={lightMode.length > 0 ? styles.light_mode : styles.night_mode}
     >
       <section className={styles.section}>
-        <button onClick={handleClose} className={styles.close_button}>
-          <i className="bi bi-x-lg"></i>
-        </button>
-        <div>
+        <header className={styles.title_container}>
+          <h2 className={styles.title}>Settings</h2>
+          <button onClick={handleClose} className={styles.close_button}>
+            <i className="bi bi-x-lg"></i>
+          </button>
+        </header>
+        <div className={styles.setting_container}>
           {colorBlindMode ? (
-            <button onClick={handleColorBlindMode}>
-              Deactivate Colorblind Mode
-              <i className="bx bxs-palette"></i>
-            </button>
+            <>
+              <p>Deactivate Colorblind Mode</p>
+              <button onClick={handleColorBlindMode} className={styles.button}>
+                <i className="bx bxs-palette"></i>
+              </button>
+            </>
           ) : (
-            <button onClick={handleColorBlindMode}>
-              Activate Colorblind Mode
-              <i className="bx bx-palette"></i>
-            </button>
+            <>
+              <p>Activate Colorblind Mode</p>
+              <button onClick={handleColorBlindMode} className={styles.button}>
+                <i className="bx bx-palette"></i>
+              </button>
+            </>
           )}
         </div>
       </section>
