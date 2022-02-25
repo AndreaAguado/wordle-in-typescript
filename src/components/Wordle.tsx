@@ -17,8 +17,8 @@ export interface KeyboardKey {
 }
 
 interface ModalProps {
-  hidden: boolean;
-  setHidden: React.Dispatch<React.SetStateAction<boolean>>;
+  resultsHidden: boolean;
+  setResultsHidden: React.Dispatch<React.SetStateAction<boolean>>;
   rulesHidden: boolean;
   setRulesHidden: React.Dispatch<React.SetStateAction<boolean>>;
   optionsHidden: boolean;
@@ -30,8 +30,8 @@ interface ModalProps {
 }
 
 const Wordle = ({
-  hidden,
-  setHidden,
+  resultsHidden,
+  setResultsHidden,
   rulesHidden,
   setRulesHidden,
   optionsHidden,
@@ -213,8 +213,8 @@ const Wordle = ({
           type="won"
           completedWords={completedWords}
           solution={wordOfTheDay}
-          hidden={hidden}
-          setHidden={setHidden}
+          resultsHidden={resultsHidden}
+          setResultsHidden={setResultsHidden}
           gameStatus={gameStatus}
         />
       ) : gameStatus === GameStatus.Lost ? (
@@ -222,8 +222,8 @@ const Wordle = ({
           type="lost"
           completedWords={completedWords}
           solution={wordOfTheDay}
-          hidden={hidden}
-          setHidden={setHidden}
+          resultsHidden={resultsHidden}
+          setResultsHidden={setResultsHidden}
           gameStatus={gameStatus}
         />
       ) : null}

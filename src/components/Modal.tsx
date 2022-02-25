@@ -5,8 +5,8 @@ interface ModalProps {
   type: "won" | "lost" | "playing";
   completedWords: string[];
   solution: string;
-  hidden: boolean;
-  setHidden: React.Dispatch<React.SetStateAction<boolean>>;
+  resultsHidden: boolean;
+  setResultsHidden: React.Dispatch<React.SetStateAction<boolean>>;
   gameStatus: GameStatus;
 }
 
@@ -19,11 +19,11 @@ const Modal = ({
   type,
   completedWords,
   solution,
-  hidden,
-  setHidden,
+  resultsHidden,
+  setResultsHidden,
 }: ModalProps) => {
   const handleClose = () => {
-    setHidden(true);
+    setResultsHidden(true);
   };
 
   const Square = ({ word, solution }: SquareProps) => {
@@ -57,7 +57,7 @@ const Modal = ({
   };
   return (
     <>
-      {hidden ? null : (
+      {resultsHidden ? null : (
         <div className={styles.modalViewContainer}>
           <div className={styles.modalContainer}>
             <div className={styles.button_container}>

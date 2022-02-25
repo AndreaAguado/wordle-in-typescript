@@ -2,8 +2,8 @@ import styles from "../styles/header.module.scss";
 import { useState } from "react";
 
 interface HeaderProps {
-  hidden: boolean;
-  setHidden: React.Dispatch<React.SetStateAction<boolean>>;
+  resultsHidden: boolean;
+  setResultsHidden: React.Dispatch<React.SetStateAction<boolean>>;
   rulesHidden: boolean;
   setRulesHidden: React.Dispatch<React.SetStateAction<boolean>>;
   optionsHidden: boolean;
@@ -11,8 +11,8 @@ interface HeaderProps {
 }
 
 const Header = ({
-  hidden,
-  setHidden,
+  resultsHidden,
+  setResultsHidden,
   rulesHidden,
   setRulesHidden,
   optionsHidden,
@@ -32,8 +32,8 @@ const Header = ({
   };
 
   const handleModal = () => {
-    if (hidden) {
-      setHidden(false);
+    if (resultsHidden) {
+      setResultsHidden(false);
     }
   };
 
@@ -44,13 +44,6 @@ const Header = ({
   };
 
   const handleOptions = () => {
-    // if (colorBlindMode) {
-    //   setColorBlindMode(false);
-    //   document.body.classList.remove("color_blind_mode");
-    // } else {
-    //   setColorBlindMode(true);
-    //   document.body.classList.add("color_blind_mode");
-    // }
     if (optionsHidden) {
       setOptionsHidden(false);
     }
@@ -67,7 +60,7 @@ const Header = ({
       </button>
       <h1 className={styles.header_title}>Wordle</h1>
       <div>
-        {hidden ? (
+        {resultsHidden ? (
           <button
             onClick={handleModal}
             className={styles.button}
