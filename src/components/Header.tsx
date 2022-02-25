@@ -51,15 +51,20 @@ const Header = ({
 
   return (
     <header className={styles.header}>
-      <button
-        onClick={handleRulesModal}
-        className={styles.button}
-        title="How to play?"
-      >
-        <i className="bi bi-patch-question" aria-label="question mark icon"></i>
-      </button>
+      <div className={styles.buttons_container}>
+        <button
+          onClick={handleRulesModal}
+          className={styles.button}
+          title="How to play?"
+        >
+          <i
+            className="bi bi-patch-question"
+            aria-label="question mark icon"
+          ></i>
+        </button>
+      </div>
       <h1 className={styles.header_title}>Wordle</h1>
-      <div>
+      <div className={styles.buttons_container}>
         {resultsHidden ? (
           <button
             onClick={handleModal}
