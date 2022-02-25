@@ -19,7 +19,6 @@ const Header = ({
   setOptionsHidden,
 }: HeaderProps) => {
   const [darkMode, setDarkMode] = useState(true);
-  // const [colorBlindMode, setColorBlindMode] = useState(false);
   const handleModeChange = () => {
     if (darkMode) {
       setDarkMode(false);

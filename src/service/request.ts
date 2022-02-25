@@ -1,4 +1,3 @@
-// import callToApi from "./callToApi";
 import { WORDS } from "./words";
 
 const getWords = () => {
@@ -12,10 +11,6 @@ export const getWordOfTheDay = () => {
 }
 
 export const isValidWord = async (word: string) => {
-    // const words = getWords();
-    // const aux = callToApi.callToApi(word);
-    // console.log(aux);    
-    // return words.includes(word.toLocaleLowerCase());
    try {
        const URL = `https://api.dictionaryapi.dev/api/v2/entries/en/${word}`;
        const response = await fetch(URL);

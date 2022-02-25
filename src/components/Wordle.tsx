@@ -187,14 +187,11 @@ const Wordle = ({
     if (wordOfTheDay.includes(letter)) {
       if (wordOfTheDay[pos] === letter) {
         findLetterOfKeyboard(letter, "correct");
-        // return "correct";
       } else {
         findLetterOfKeyboard(letter, "present");
-        // return "present";
       }
     } else {
       findLetterOfKeyboard(letter, "absent");
-      //   return "absent";
     }
   }
 
@@ -233,7 +230,6 @@ const Wordle = ({
       <Rules rulesHidden={rulesHidden} setRulesHidden={setRulesHidden} />
       {optionsHidden ? null : (
         <Options
-          // optionsHidden={optionsHidden}
           setOptionsHidden={setOptionsHidden}
           colorBlindMode={colorBlindMode}
           setColorBlindMode={setColorBlindMode}

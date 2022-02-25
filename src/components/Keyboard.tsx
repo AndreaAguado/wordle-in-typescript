@@ -1,12 +1,6 @@
 import style from "../styles/keyboard.module.scss";
 import { KeyStatus } from "./types";
 
-// import type KeyboardKey  from '../components/Wordle';
-
-// import classNames from 'classnames/bind';
-
-// const classes =  classNames.bind(style);
-
 interface KeyboardKey {
   letterValue: string;
   letterStatus: KeyStatus;
@@ -29,11 +23,6 @@ const Keyboard = ({ keys, onKeyPressed, keysStates }: KeyboardProps) => {
     onKeyPressed("BACKSPACE");
   };
 
-  // const KeyStatus = classes({
-  //     absent: keysStates.letterStatus === "absent",
-  //     present: keysStates.letterStatus === "present",
-  //     correct: keysStates.letterStatus === "correct",
-  // })
   let colorBlindMode = document.getElementsByClassName("color_blind_mode");
   let accessibilityMode = document.getElementsByClassName("accessibility_mode");
 
