@@ -5,7 +5,7 @@ import Header from "./components/Header";
 import { useState } from "react";
 
 function App() {
-  const [hidden, setHidden] = useState<boolean>(false);
+  const [resultsHidden, setResultsHidden] = useState<boolean>(false);
   const [rulesHidden, setRulesHidden] = useState<boolean>(false);
   const [optionsHidden, setOptionsHidden] = useState<boolean>(true);
   const [colorBlindMode, setColorBlindMode] = useState<boolean>(false);
@@ -14,8 +14,8 @@ function App() {
   return (
     <>
       <Header
-        hidden={hidden}
-        setHidden={setHidden}
+        resultsHidden={resultsHidden}
+        setResultsHidden={setResultsHidden}
         rulesHidden={rulesHidden}
         setRulesHidden={setRulesHidden}
         optionsHidden={optionsHidden}
@@ -23,8 +23,8 @@ function App() {
       />
       <main className="main">
         <Wordle
-          hidden={hidden}
-          setHidden={setHidden}
+          resultsHidden={resultsHidden}
+          setResultsHidden={setResultsHidden}
           rulesHidden={rulesHidden}
           setRulesHidden={setRulesHidden}
           optionsHidden={optionsHidden}

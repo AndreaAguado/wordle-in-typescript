@@ -9,6 +9,8 @@ This project started following [this tutorial](https://github.com/marcosrivasr/w
 - Responsive Design.
 - Virtual Keyboard keys color change according to current word status (letter absent, present or correct).
 - Light mode / night mode
+- Accessibility mode (make font of the virtual keys larger)
+- Colorblind mode
 
 ### This repository is conformed by:
 

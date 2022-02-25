@@ -2,8 +2,8 @@ import styles from "../styles/header.module.scss";
 import { useState } from "react";
 
 interface HeaderProps {
-  hidden: boolean;
-  setHidden: React.Dispatch<React.SetStateAction<boolean>>;
+  resultsHidden: boolean;
+  setResultsHidden: React.Dispatch<React.SetStateAction<boolean>>;
   rulesHidden: boolean;
   setRulesHidden: React.Dispatch<React.SetStateAction<boolean>>;
   optionsHidden: boolean;
@@ -11,15 +11,14 @@ interface HeaderProps {
 }
 
 const Header = ({
-  hidden,
-  setHidden,
+  resultsHidden,
+  setResultsHidden,
   rulesHidden,
   setRulesHidden,
   optionsHidden,
   setOptionsHidden,
 }: HeaderProps) => {
   const [darkMode, setDarkMode] = useState(true);
-  // const [colorBlindMode, setColorBlindMode] = useState(false);
   const handleModeChange = () => {
     if (darkMode) {
       setDarkMode(false);
@@ -33,8 +32,8 @@ const Header = ({
   };
 
   const handleModal = () => {
-    if (hidden) {
-      setHidden(false);
+    if (resultsHidden) {
+      setResultsHidden(false);
     }
   };
 
@@ -45,13 +44,6 @@ const Header = ({
   };
 
   const handleOptions = () => {
-    // if (colorBlindMode) {
-    //   setColorBlindMode(false);
-    //   document.body.classList.remove("color_blind_mode");
-    // } else {
-    //   setColorBlindMode(true);
-    //   document.body.classList.add("color_blind_mode");
-    // }
     if (optionsHidden) {
       setOptionsHidden(false);
     }
@@ -59,16 +51,21 @@ const Header = ({
 
   return (
     <header className={styles.header}>
-      <button
-        onClick={handleRulesModal}
-        className={styles.button}
-        title="How to play?"
-      >
-        <i className="bi bi-patch-question" aria-label="question mark icon"></i>
-      </button>
+      <div className={styles.buttons_container}>
+        <button
+          onClick={handleRulesModal}
+          className={styles.button}
+          title="How to play?"
+        >
+          <i
+            className="bi bi-patch-question"
+            aria-label="question mark icon"
+          ></i>
+        </button>
+      </div>
       <h1 className={styles.header_title}>Wordle</h1>
-      <div>
-        {hidden ? (
+      <div className={styles.buttons_container}>
+        {resultsHidden ? (
           <button
             onClick={handleModal}
             className={styles.button}

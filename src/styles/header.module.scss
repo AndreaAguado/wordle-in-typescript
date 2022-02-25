@@ -8,6 +8,9 @@
   border-bottom: solid 1px #555;
   width: 60%;
   margin: auto;
+  @media all and (max-width: 500px) {
+    width: 90%;
+  }
   &_title {
     margin: unset;
   }
@@ -29,4 +32,13 @@
   @include button();
   color: #666666;
   cursor: not-allowed;
+}
+
+.buttons_container {
+  width: 40%;
+  display: flex;
+  justify-content: space-around;
+  @media all and (min-width: 768px) {
+    width: 110px;
+  }
 }
